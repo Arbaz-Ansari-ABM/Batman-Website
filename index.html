@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batman Login & Create Account</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-white d-flex justify-content-center align-items-center vh-100">
+
+    <div class="card bg-secondary border-0 shadow-lg" style="width: 22rem;">
+        <div class="card-body text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/en/8/87/Batman_DC_Comics.png" class="img-fluid mb-3" alt="Batman Logo" style="width: 100px;">
+            <h3 class="mb-4" id="formTitle">Batman Login</h3>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="active-form">
+                <div class="mb-3 text-start">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                </div>
+                <div class="mb-3 text-start">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-dark w-100 mt-3">Login</button>
+            </form>
+
+            <!-- Create Account Form -->
+            <form id="createAccountForm" class="d-none">
+                <div class="mb-3 text-start">
+                    <label for="newUsername" class="form-label">Create Username</label>
+                    <input type="text" class="form-control" id="newUsername" placeholder="Enter a new username">
+                </div>
+                <div class="mb-3 text-start">
+                    <label for="newPassword" class="form-label">Create Password</label>
+                    <input type="password" class="form-control" id="newPassword" placeholder="Enter a new password">
+                </div>
+                <button type="submit" class="btn btn-dark w-100 mt-3">Create Account</button>
+            </form>
+
+            <!-- Toggle Links -->
+            <div class="mt-4">
+                <a href="#" id="showCreateAccount" class="text-white">Create an account</a>
+                <a href="#" id="showLogin" class="text-white d-none">Already have an account? Login</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript to handle form toggling and submission -->
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const createAccountForm = document.getElementById('createAccountForm');
+        const showCreateAccount = document.getElementById('showCreateAccount');
+        const showLogin = document.getElementById('showLogin');
+        const formTitle = document.getElementById('formTitle');
+
+        // Toggle to show Create Account form
+        showCreateAccount.addEventListener('click', function(event) {
+            event.preventDefault();
+            loginForm.classList.add('d-none');
+            createAccountForm.classList.remove('d-none');
+            showCreateAccount.classList.add('d-none');
+            showLogin.classList.remove('d-none');
+            formTitle.textContent = 'Create Account';
+        });
+
+        // Toggle to show Login form
+        showLogin.addEventListener('click', function(event) {
+            event.preventDefault();
+            createAccountForm.classList.add('d-none');
+            loginForm.classList.remove('d-none');
+            showLogin.classList.add('d-none');
+            showCreateAccount.classList.remove('d-none');
+            formTitle.textContent = 'Batman Login';
+        });
+
+        // Handle Create Account form submission
+        document.getElementById('createAccountForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get the values from the input fields
+            const newUsername = document.getElementById('newUsername').value;
+            const newPassword = document.getElementById('newPassword').value;
+
+            // Store the new account details in local storage
+            localStorage.setItem('username', newUsername);
+            localStorage.setItem('password', newPassword);
+
+            // Optionally, you can alert the user that the account has been created
+            alert('Account created successfully! Redirecting to homepage.');
+
+            // Redirect to another page after successful account creation
+            location.href = "bootstrap.html";
+        });
+
+        // Handle Login form submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            // Get the values from the input fields
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Retrieve the stored account details from local storage
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
+
+            // Check if the entered details match the stored details
+            if (username === storedUsername && password === storedPassword) {
+                alert('Login successful! Redirecting to homepage.');
+                // Redirect to another page after successful login
+                location.href = "bootstrap.html";
+            } else {
+                alert('Incorrect username or password.');
+            }
+        });
+    </script>
+</body>
+</html>

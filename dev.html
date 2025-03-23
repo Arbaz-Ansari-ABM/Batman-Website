@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('photos/Batman.png') no-repeat center center;
+            background-size: cover;
+            position: relative;
+        }
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            height: 80%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .left-side {
+            flex: 1;
+            background: url('photos/arbaz.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        .right-side {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.464);
+            color: white;
+        }
+        .right-side h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .right-side p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; 
+            }
+            .left-side, .right-side {
+                height: 50vh;
+            }
+            .right-side {
+                padding: 20px; 
+            }
+            .right-side h1 {
+                font-size: 2rem;
+            }
+            .right-side p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side"></div>
+        <div class="right-side">
+            <h1>Arbaz Ahmad Ansari</h1>
+            <p>Front-End Web Developer with expertise in HTML, CSS, and JavaScript. Passionate about creating responsive and visually appealing web applications. Always eager to learn new technologies and enhance user experience through innovative solutions.</p>
+        </div>
+    </div>
+</body>
+</html>

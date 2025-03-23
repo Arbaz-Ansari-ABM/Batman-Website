@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batman Suits</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('photos/image.jpg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
+        }
+        .blurred-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: url('photos/image.jpg') no-repeat center center; 
+            background-size: cover;
+            filter: blur(8px);
+        }
+        .overlay-image {
+            position: absolute;
+            top: 20px; 
+            left: 20px; 
+            width: 150px; 
+            z-index: 2;
+        }
+        .content {
+            position: relative;
+            z-index: 3; 
+        }
+        .logo{
+            background-color: goldenrod;
+        }
+    </style>
+</head>
+<body>
+    <div class="blurred-bg"></div>
+
+    <!-- Main content container using Bootstrap -->
+    <div class="container content mt-5">
+        <h1 class="text-center mb-4 logo">Batman Suits</h1>
+        <div class="row">
+            <!-- Suit 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card" style="background-color: rgba(0, 0, 0, 0.464); color: white;">
+                    <img src="photos/suit1.jpg" class="card-img-top" alt="Batman Suit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Classic Suit</h5>
+                        <p class="card-text">The original Batman suit, known for its iconic black and yellow symbol.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Suit 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card" style="background-color: rgba(0, 0, 0, 0.464); color: white;">
+                    <img src="photos/suit2.jpg" class="card-img-top" alt="Batman Suit 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Armored Suit</h5>
+                        <p class="card-text">A heavily fortified suit for combat against powerful foes.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Suit 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card" style="background-color: rgba(0, 0, 0, 0.464); color: white;">
+                    <img src="photos/suit3.jpg" class="card-img-top" alt="Batman Suit 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Stealth Suit</h5>
+                        <p class="card-text">Designed for stealth missions, this suit enhances Batman's invisibility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
